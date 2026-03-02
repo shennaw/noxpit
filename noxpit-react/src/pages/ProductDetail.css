@@ -5,10 +5,11 @@
 
 .pd-root {
   min-height: 100vh;
-  background: #04070f;
-  color: #fff;
+  background: var(--bg, #04070f);
+  color: var(--fg, #fff);
   font-family: 'Barlow', sans-serif;
   cursor: none;
+  transition: background 0.35s ease, color 0.35s ease;
 }
 
 /* ─── NAV ─── */
@@ -18,9 +19,10 @@
   height: 60px;
   display: flex; align-items: center; justify-content: space-between;
   padding: 0 48px;
-  background: rgba(4,7,15,0.92);
+  background: rgba(var(--bg-rgb, 4,7,15),0.92);
   backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(var(--fg-rgb, 255,255,255),0.05);
+  transition: background 0.35s ease;
 }
 .pd-nav-back {
   display: flex; align-items: center; gap: 10px;

@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ThemeProvider } from './context/ThemeContext';
 import { useScrollReveal } from './hooks/useScrollReveal';
 import Cursor from './components/Cursor';
 import Nav from './components/Nav';
@@ -31,12 +32,14 @@ function Landing() {
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <Cursor />
-      <Routes>
-        <Route path="/" element={<Landing />} />
-        <Route path="/product" element={<ProductDetail />} />
-      </Routes>
-    </BrowserRouter>
+    <ThemeProvider>
+      <BrowserRouter>
+        <Cursor />
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/product" element={<ProductDetail />} />
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }

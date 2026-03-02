@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { useTheme } from '../context/ThemeContext';
 import './ProductDetail.css';
 
 /* ─── Data ─── */
@@ -234,6 +235,7 @@ function AnimCounter({ target, suffix = '', duration = 1200 }) {
 /* ─── Main Component ─── */
 export default function ProductDetail() {
   const [qty, setQty] = useState(1);
+  const { theme, toggle } = useTheme();
 
   const fmtPrice = (n) =>
     'Rp ' + n.toLocaleString('id-ID').replace(/\./g, '.');
@@ -245,7 +247,12 @@ export default function ProductDetail() {
       <nav className="pd-nav">
         <Link to="/" className="pd-nav-back">Kembali</Link>
         <Link to="/" className="pd-nav-logo">NOX<span>PIT</span></Link>
-        <span className="pd-nav-sku">{PRODUCT.sku}</span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+          <span className="pd-nav-sku">{PRODUCT.sku}</span>
+          <button className="theme-toggle" onClick={toggle} title="Toggle theme">
+            {theme === 'dark' ? '☀' : '☾'}
+          </button>
+        </div>
       </nav>
 
       {/* ─── HERO ─── */}
