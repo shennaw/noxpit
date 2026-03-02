@@ -12,6 +12,10 @@
   transition: background 0.35s ease, color 0.35s ease;
 }
 
+@media (hover: none), (pointer: coarse) {
+  .pd-root, .pd-root * { cursor: auto !important; }
+}
+
 /* ─── NAV ─── */
 .pd-nav {
   position: fixed; top: 0; left: 0; right: 0;
