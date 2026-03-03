@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
 import { useScrollReveal } from './hooks/useScrollReveal';
-import Cursor from './components/Cursor';
 import Nav from './components/Nav';
 import Hero from './components/Hero';
 import Marquee from './components/Marquee';
@@ -34,7 +33,6 @@ export default function App() {
   return (
     <ThemeProvider>
       <BrowserRouter>
-        <Cursor />
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/product" element={<ProductDetail />} />
