@@ -1,0 +1,75 @@
+/* ─── ORDERS PAGE ─── */
+.ord-root {
+  min-height: 100vh; background: var(--bg); color: var(--fg);
+  font-family: 'Barlow', sans-serif;
+  transition: background 0.35s ease, color 0.35s ease;
+}
+.ord-header {
+  padding: 120px 60px 40px;
+  border-bottom: 1px solid rgba(var(--fg-rgb), 0.05);
+}
+.ord-eyebrow {
+  font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--blue); font-weight: 700;
+  display: flex; align-items: center; gap: 12px; margin-bottom: 16px;
+}
+.ord-eyebrow::before { content: ''; width: 20px; height: 1.5px; background: var(--blue); }
+.ord-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(36px, 4vw, 56px); font-weight: 900;
+  text-transform: uppercase; line-height: 1;
+}
+
+.ord-empty {
+  display: flex; flex-direction: column; align-items: center;
+  padding: 100px 24px; gap: 16px;
+}
+.ord-empty-text { font-family: 'Barlow Condensed', sans-serif; font-size: 24px; font-weight: 900; text-transform: uppercase; }
+.ord-empty-sub { font-size: 13px; color: rgba(var(--fg-rgb), 0.35); }
+.ord-empty-btn {
+  margin-top: 16px; padding: 14px 32px; background: var(--blue); color: #fff;
+  font-size: 12px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase;
+  text-decoration: none;
+  clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+}
+
+.ord-list {
+  display: flex; flex-direction: column; gap: 2px;
+  padding: 2px 60px 60px;
+}
+.ord-card {
+  display: flex; align-items: center; gap: 20px;
+  background: var(--bg2); padding: 24px 28px;
+  text-decoration: none; color: inherit;
+  transition: background 0.25s;
+  position: relative;
+}
+.ord-card:hover { background: var(--bg3); }
+.ord-card-accent { width: 3px; height: 48px; flex-shrink: 0; }
+.ord-card-main { flex: 1; }
+.ord-card-id {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 16px; font-weight: 900; letter-spacing: 0.06em;
+}
+.ord-card-date { font-size: 12px; color: rgba(var(--fg-rgb), 0.35); margin-top: 4px; }
+.ord-card-items { font-size: 11px; color: rgba(var(--fg-rgb), 0.25); margin-top: 2px; }
+.ord-card-right {
+  display: flex; flex-direction: column; align-items: flex-end; gap: 8px;
+}
+.ord-card-status {
+  font-size: 9px; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase;
+  padding: 4px 10px; border: 1px solid;
+  clip-path: polygon(4px 0%, 100% 0%, calc(100% - 4px) 100%, 0% 100%);
+}
+.ord-card-total {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 22px; font-weight: 900; color: var(--blue);
+}
+
+@media (max-width: 900px) {
+  .ord-list { padding: 2px 24px 40px; }
+  .ord-header { padding: 100px 24px 32px; }
+  .ord-nav { padding: 0 20px; }
+  .ord-card { flex-direction: column; align-items: flex-start; }
+  .ord-card-right { flex-direction: row; align-items: center; gap: 16px; }
+}

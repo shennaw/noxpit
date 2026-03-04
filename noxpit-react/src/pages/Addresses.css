@@ -1,0 +1,126 @@
+/* ─── ADDRESSES PAGE ─── */
+.addr-root {
+  min-height: 100vh; background: var(--bg); color: var(--fg);
+  font-family: 'Barlow', sans-serif;
+  transition: background 0.35s ease, color 0.35s ease;
+}
+.addr-header {
+  padding: 120px 60px 40px;
+  display: flex; align-items: flex-end; justify-content: space-between;
+  border-bottom: 1px solid rgba(var(--fg-rgb), 0.05);
+}
+.addr-eyebrow {
+  font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--blue); font-weight: 700;
+  display: flex; align-items: center; gap: 12px; margin-bottom: 16px;
+}
+.addr-eyebrow::before { content: ''; width: 20px; height: 1.5px; background: var(--blue); }
+.addr-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(36px, 4vw, 56px); font-weight: 900;
+  text-transform: uppercase; line-height: 1;
+}
+.addr-add-btn {
+  padding: 12px 24px;
+  background: var(--blue); color: #fff;
+  font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
+  border: none; cursor: pointer;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  transition: opacity 0.2s;
+}
+.addr-add-btn:hover { opacity: 0.85; }
+
+/* Form */
+.addr-form-wrap {
+  padding: 32px 60px;
+  border-bottom: 1px solid rgba(var(--fg-rgb), 0.05);
+  background: rgba(var(--fg-rgb), 0.015);
+}
+.addr-form {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  max-width: 700px;
+}
+.addr-form-field { display: flex; flex-direction: column; gap: 6px; }
+.addr-form-label {
+  font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(var(--fg-rgb), 0.4); font-weight: 700;
+}
+.addr-form-input {
+  background: rgba(var(--fg-rgb), 0.04);
+  border: 1px solid rgba(var(--fg-rgb), 0.1);
+  color: var(--fg); padding: 12px 14px;
+  font-size: 13px; font-family: 'Barlow', sans-serif;
+  outline: none; transition: border-color 0.2s;
+}
+.addr-form-input:focus { border-color: var(--blue); }
+.addr-form-actions {
+  grid-column: 1 / -1; display: flex; gap: 8px; margin-top: 8px;
+}
+.addr-form-save {
+  padding: 12px 28px;
+  background: var(--blue); color: #fff;
+  font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
+  border: none; cursor: pointer;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+}
+.addr-form-cancel {
+  padding: 12px 28px;
+  background: transparent; color: rgba(var(--fg-rgb), 0.4);
+  font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  border: 1px solid rgba(var(--fg-rgb), 0.1); cursor: pointer;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+}
+
+/* Empty */
+.addr-empty {
+  display: flex; flex-direction: column; align-items: center;
+  padding: 80px 24px; gap: 16px;
+}
+.addr-empty-text { font-size: 14px; color: rgba(var(--fg-rgb), 0.35); }
+.addr-empty-btn {
+  padding: 12px 24px; background: var(--blue); color: #fff;
+  font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
+  border: none; cursor: pointer;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+}
+
+/* List */
+.addr-list {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 2px; padding: 2px 60px 60px;
+}
+.addr-card {
+  background: var(--bg2); padding: 28px;
+  position: relative; transition: background 0.25s;
+}
+.addr-card:hover { background: var(--bg3); }
+.addr-card-default { border-left: 3px solid var(--blue); }
+.addr-default-badge {
+  font-size: 9px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--blue); margin-bottom: 8px; display: block;
+}
+.addr-card-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 20px; font-weight: 900; text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.addr-card-recipient { font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+.addr-card-detail { font-size: 12px; color: rgba(var(--fg-rgb), 0.4); line-height: 1.6; }
+.addr-card-actions {
+  display: flex; gap: 8px; margin-top: 16px;
+}
+.addr-card-actions button {
+  padding: 6px 14px; background: transparent;
+  border: 1px solid rgba(var(--fg-rgb), 0.08); color: rgba(var(--fg-rgb), 0.4);
+  font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  cursor: pointer; transition: color 0.2s, border-color 0.2s;
+}
+.addr-card-actions button:hover { color: var(--blue); border-color: var(--blue); }
+
+@media (max-width: 900px) {
+  .addr-list { grid-template-columns: 1fr; padding: 2px 24px 40px; }
+  .addr-header { padding: 100px 24px 32px; flex-direction: column; gap: 16px; align-items: flex-start; }
+  .addr-form-wrap { padding: 24px; }
+  .addr-form { grid-template-columns: 1fr; }
+  .addr-nav { padding: 0 20px; }
+}

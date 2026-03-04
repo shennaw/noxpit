@@ -12,17 +12,7 @@ export function useCarousel() {
   const progressRafRef = useRef(null);
   const progressStartRef = useRef(null);
 
-  const animateProgress = useCallback((timestamp) => {
-    if (!progressStartRef.current) progressStartRef.current = timestamp;
-    const elapsed = timestamp - progressStartRef.current;
-    const pct = Math.min((elapsed / AUTO_INTERVAL) * 100, 100);
-    if (progressRef.current) progressRef.current.style.width = pct + '%';
-    if (pct < 100) {
-      progressRafRef.current = requestAnimationFrame(animateProgress);
-    }
-  }, []);
-
-  const resetAuto = useCallback((nextIndex) => {
+  const resetAuto = useCallback(() => {
     clearTimeout(autoTimerRef.current);
     cancelAnimationFrame(progressRafRef.current);
     if (progressRef.current) {
@@ -32,11 +22,20 @@ export function useCarousel() {
     progressStartRef.current = null;
     if (progressRef.current) progressRef.current.getBoundingClientRect();
     if (progressRef.current) progressRef.current.style.transition = '';
-    progressRafRef.current = requestAnimationFrame(animateProgress);
+    const animate = (timestamp) => {
+      if (!progressStartRef.current) progressStartRef.current = timestamp;
+      const elapsed = timestamp - progressStartRef.current;
+      const pct = Math.min((elapsed / AUTO_INTERVAL) * 100, 100);
+      if (progressRef.current) progressRef.current.style.width = pct + '%';
+      if (pct < 100) {
+        progressRafRef.current = requestAnimationFrame(animate);
+      }
+    };
+    progressRafRef.current = requestAnimationFrame(animate);
     autoTimerRef.current = setTimeout(() => {
       setCurrent(c => (c + 1) % SLIDE_COUNT);
     }, AUTO_INTERVAL);
-  }, [animateProgress]);
+  }, []);
 
   const goTo = useCallback((index) => {
     const next = ((index % SLIDE_COUNT) + SLIDE_COUNT) % SLIDE_COUNT;

@@ -1,0 +1,125 @@
+/* ─── ORDER DETAIL PAGE ─── */
+.od-root {
+  min-height: 100vh; background: var(--bg); color: var(--fg);
+  font-family: 'Barlow', sans-serif;
+  transition: background 0.35s ease, color 0.35s ease;
+}
+.od-header {
+  padding: 120px 60px 40px;
+  border-bottom: 1px solid rgba(var(--fg-rgb), 0.05);
+}
+.od-eyebrow {
+  font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--blue); font-weight: 700;
+  display: flex; align-items: center; gap: 12px; margin-bottom: 16px;
+}
+.od-eyebrow::before { content: ''; width: 20px; height: 1.5px; background: var(--blue); }
+.od-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(28px, 3vw, 40px); font-weight: 900;
+  text-transform: uppercase; line-height: 1; letter-spacing: 0.04em;
+}
+.od-date { font-size: 12px; color: rgba(var(--fg-rgb), 0.3); margin-top: 8px; }
+.od-empty {
+  display: flex; align-items: center; justify-content: center;
+  padding: 200px 24px; font-size: 16px; color: rgba(var(--fg-rgb), 0.4);
+}
+
+/* Timeline */
+.od-timeline {
+  display: flex; align-items: flex-start; justify-content: center;
+  padding: 40px 60px;
+  border-bottom: 1px solid rgba(var(--fg-rgb), 0.05);
+  gap: 0;
+}
+.od-tl-step {
+  display: flex; flex-direction: column; align-items: center;
+  position: relative; flex: 1; text-align: center;
+}
+.od-tl-dot {
+  width: 14px; height: 14px; border-radius: 50%;
+  border: 2px solid; z-index: 2; position: relative;
+}
+.od-tl-line {
+  position: absolute; top: 7px; left: calc(50% + 7px);
+  width: calc(100% - 14px); height: 2px;
+}
+.od-tl-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: rgba(var(--fg-rgb), 0.3); margin-top: 12px;
+}
+.od-tl-reached .od-tl-label { color: var(--fg); }
+.od-tl-time {
+  font-size: 9px; color: rgba(var(--fg-rgb), 0.25); margin-top: 4px;
+}
+
+/* Simulate button */
+.od-simulate { padding: 24px 60px; text-align: center; }
+.od-simulate-btn {
+  padding: 12px 28px; background: var(--purple); color: #fff;
+  font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
+  border: none; cursor: pointer;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  transition: opacity 0.2s;
+}
+.od-simulate-btn:hover { opacity: 0.85; }
+
+/* Sections */
+.od-section {
+  padding: 32px 60px;
+  border-bottom: 1px solid rgba(var(--fg-rgb), 0.05);
+}
+.od-section-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 18px; font-weight: 900; text-transform: uppercase;
+  letter-spacing: 0.08em; margin-bottom: 16px;
+}
+
+/* Items */
+.od-items { border: 1px solid rgba(var(--fg-rgb), 0.06); }
+.od-item {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 20px; border-bottom: 1px solid rgba(var(--fg-rgb), 0.04);
+}
+.od-item:last-child { border-bottom: none; }
+.od-item-name { font-weight: 600; font-size: 14px; }
+.od-item-qty { font-size: 12px; color: rgba(var(--fg-rgb), 0.4); margin-top: 2px; }
+.od-item-total {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 18px; font-weight: 900; color: var(--blue);
+}
+
+.od-totals { margin-top: 16px; }
+.od-total-row {
+  display: flex; justify-content: space-between; padding: 6px 0;
+  font-size: 13px; color: rgba(var(--fg-rgb), 0.5);
+}
+.od-total-final {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 20px; font-weight: 900; color: var(--fg);
+  padding-top: 12px; margin-top: 6px;
+  border-top: 1px solid rgba(var(--fg-rgb), 0.06);
+}
+
+/* Address */
+.od-addr {
+  background: var(--bg2); padding: 20px;
+}
+.od-addr-name { font-weight: 700; font-size: 14px; margin-bottom: 8px; }
+.od-addr-detail { font-size: 12px; color: rgba(var(--fg-rgb), 0.4); line-height: 1.6; }
+
+/* Payment */
+.od-payment {
+  font-size: 14px; font-weight: 600;
+  background: var(--bg2); padding: 16px 20px;
+}
+
+@media (max-width: 900px) {
+  .od-header { padding: 100px 24px 32px; }
+  .od-nav { padding: 0 20px; }
+  .od-timeline { padding: 32px 24px; flex-direction: column; align-items: flex-start; gap: 16px; }
+  .od-tl-line { display: none; }
+  .od-tl-step { flex-direction: row; gap: 12px; }
+  .od-section { padding: 24px; }
+  .od-simulate { padding: 16px 24px; }
+}

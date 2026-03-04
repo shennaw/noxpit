@@ -72,7 +72,7 @@ export default function Products() {
           <div className="prod-price">Rp 285.000</div>
           <div style={{ display: 'flex', gap: 16, alignItems: 'center', marginTop: 16 }}>
             <a href="#" className="prod-action" style={{ margin: 0 }}>Order →</a>
-            <Link to="/product" className="prod-action" style={{ margin: 0, color: 'rgba(0,145,208,0.7)' }}>Detail →</Link>
+            <Link to="/product/gear-set-revo" className="prod-action" style={{ margin: 0, color: 'rgba(0,145,208,0.7)' }}>Detail →</Link>
           </div>
         </div>
 

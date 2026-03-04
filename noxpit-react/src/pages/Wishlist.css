@@ -1,0 +1,97 @@
+/* ─── WISHLIST PAGE ─── */
+.wl-root {
+  min-height: 100vh;
+  background: var(--bg); color: var(--fg);
+  font-family: 'Barlow', sans-serif;
+  transition: background 0.35s ease, color 0.35s ease;
+}
+.wl-header {
+  padding: 120px 60px 40px;
+  border-bottom: 1px solid rgba(var(--fg-rgb), 0.05);
+}
+.wl-eyebrow {
+  font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--blue); font-weight: 700;
+  display: flex; align-items: center; gap: 12px; margin-bottom: 16px;
+}
+.wl-eyebrow::before { content: ''; width: 20px; height: 1.5px; background: var(--blue); }
+.wl-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(36px, 4vw, 56px); font-weight: 900;
+  text-transform: uppercase; line-height: 1;
+}
+
+/* Empty */
+.wl-empty {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 100px 24px; gap: 16px;
+}
+.wl-empty-text { font-family: 'Barlow Condensed', sans-serif; font-size: 24px; font-weight: 900; text-transform: uppercase; }
+.wl-empty-sub { font-size: 13px; color: rgba(var(--fg-rgb), 0.35); }
+.wl-empty-btn {
+  margin-top: 16px; padding: 14px 32px;
+  background: var(--blue); color: #fff;
+  font-size: 12px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase;
+  text-decoration: none;
+  clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+}
+
+/* Grid */
+.wl-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 2px; padding: 2px 60px 60px;
+}
+.wl-card {
+  background: var(--bg2); padding: 32px;
+  position: relative; overflow: hidden;
+  transition: background 0.25s;
+}
+.wl-card:hover { background: var(--bg3); }
+.wl-card-corner {
+  position: absolute; top: 0; right: 0;
+  width: 0; height: 0; border-style: solid;
+  border-width: 0 28px 28px 0;
+}
+.wl-card-cat {
+  font-size: 9px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.wl-card-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 22px; font-weight: 900; text-transform: uppercase;
+  color: var(--fg); text-decoration: none; display: block;
+  line-height: 1.1; margin-bottom: 12px;
+  transition: color 0.2s;
+}
+.wl-card-name:hover { color: var(--blue); }
+.wl-card-price {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 24px; font-weight: 900; margin-bottom: 20px;
+}
+.wl-card-actions {
+  display: flex; gap: 8px;
+}
+.wl-move-btn {
+  flex: 1; padding: 10px 16px;
+  background: var(--blue); color: #fff;
+  font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;
+  border: none; cursor: pointer;
+  clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+  transition: opacity 0.2s;
+}
+.wl-move-btn:hover { opacity: 0.85; }
+.wl-remove-btn {
+  padding: 10px 16px;
+  background: transparent; color: rgba(var(--fg-rgb), 0.35);
+  font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  border: 1px solid rgba(var(--fg-rgb), 0.1); cursor: pointer;
+  clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+  transition: color 0.2s, border-color 0.2s;
+}
+.wl-remove-btn:hover { color: #f03c3c; border-color: rgba(240,60,60,0.3); }
+
+@media (max-width: 900px) {
+  .wl-grid { grid-template-columns: 1fr; padding: 2px 24px 40px; }
+  .wl-header { padding: 100px 24px 32px; }
+  .wl-nav { padding: 0 20px; }
+}

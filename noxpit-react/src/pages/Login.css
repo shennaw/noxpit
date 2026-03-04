@@ -1,0 +1,85 @@
+/* ─── AUTH SHARED STYLES ─── */
+.auth-root {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'Barlow', sans-serif;
+  display: flex; flex-direction: column;
+  transition: background 0.35s ease, color 0.35s ease;
+}
+.auth-container {
+  flex: 1; display: flex; align-items: center; justify-content: center;
+  padding: 100px 24px 40px;
+}
+.auth-card {
+  width: 100%; max-width: 400px;
+}
+.auth-eyebrow {
+  font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--blue); font-weight: 700;
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 16px;
+}
+.auth-eyebrow::before {
+  content: ''; width: 20px; height: 1.5px; background: var(--blue);
+}
+.auth-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 48px; font-weight: 900;
+  text-transform: uppercase; line-height: 1;
+  margin-bottom: 40px;
+}
+.auth-error {
+  background: rgba(240, 60, 60, 0.1);
+  border: 1px solid rgba(240, 60, 60, 0.3);
+  color: #f03c3c;
+  padding: 12px 16px;
+  font-size: 12px; font-weight: 600;
+  margin-bottom: 24px;
+  clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+}
+.auth-form {
+  display: flex; flex-direction: column; gap: 20px;
+}
+.auth-field {
+  display: flex; flex-direction: column; gap: 6px;
+}
+.auth-label {
+  font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(var(--fg-rgb), 0.4); font-weight: 700;
+}
+.auth-input {
+  background: rgba(var(--fg-rgb), 0.04);
+  border: 1px solid rgba(var(--fg-rgb), 0.1);
+  color: var(--fg);
+  padding: 14px 16px;
+  font-size: 14px; font-weight: 500;
+  font-family: 'Barlow', sans-serif;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+.auth-input:focus {
+  border-color: var(--blue);
+  background: rgba(var(--fg-rgb), 0.06);
+}
+.auth-submit {
+  display: flex; align-items: center; justify-content: center;
+  background: var(--blue); color: #fff;
+  padding: 16px 28px;
+  font-size: 13px; font-weight: 800;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  border: none; cursor: pointer; width: 100%;
+  clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+  transition: opacity 0.2s, transform 0.2s;
+  margin-top: 8px;
+}
+.auth-submit:hover { opacity: 0.88; transform: translateX(2px); }
+.auth-alt {
+  margin-top: 32px;
+  font-size: 13px; color: rgba(var(--fg-rgb), 0.4);
+  text-align: center;
+}
+.auth-alt-link {
+  color: var(--blue); text-decoration: none; font-weight: 600;
+}
+.auth-alt-link:hover { text-decoration: underline; }
