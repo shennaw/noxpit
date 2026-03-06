@@ -12,28 +12,28 @@ export default function Brand() {
         <div className="brand-eyebrow reveal">Tentang NOXPIT</div>
         <h2 className="brand-title reveal">Gaya Baru<br />Dunia <span>Otomotif</span></h2>
         <p className="brand-desc reveal">
-          NOXPIT adalah toko online dan offline yang menyediakan berbagai suku cadang motor berkualitas tinggi dengan harga terbaik. Mencoba tetap relevan dengan zaman, NOXPIT membawa gaya baru dalam dunia otomotif.
+          Dengan pendekatan yang berporos pada product experience, NOXPIT memberikan pengalaman yang berbeda dari produk yang dijual serta terus menjaga kualitasnya. Bukan sekadar toko suku cadang — NOXPIT membawa gaya baru dalam dunia otomotif.
         </p>
         <div className="features-list">
           <div className="feature-item reveal reveal-delay-1">
-            <div className="feature-icon">⚙</div>
+            <div className="feature-icon">✦</div>
             <div className="feature-text">
-              <strong>Kualitas Terjamin</strong>
-              Produk original dan OEM tersertifikasi dengan standar kualitas tinggi
+              <strong>Distinctive Experience</strong>
+              Packaging khas dengan sistem warna vibrant yang memberikan pengalaman berbeda dari kompetitor
             </div>
           </div>
           <div className="feature-item reveal reveal-delay-2">
-            <div className="feature-icon">🚀</div>
+            <div className="feature-icon">⚙</div>
             <div className="feature-text">
-              <strong>Pengiriman Cepat</strong>
-              Sistem pengiriman terintegrasi ke seluruh Indonesia
+              <strong>Technical Credibility</strong>
+              Kredibilitas terhadap kualitas tiap produk — OEM tersertifikasi dengan standar tertinggi
             </div>
           </div>
           <div className="feature-item reveal reveal-delay-3">
-            <div className="feature-icon">🛡</div>
+            <div className="feature-icon">✓</div>
             <div className="feature-text">
-              <strong>Garansi Resmi</strong>
-              Setiap produk dilindungi garansi dan dapat diklaim dengan mudah
+              <strong>Authentic Product</strong>
+              Transparan dalam memperlihatkan keaslian produk yang dijual dengan garansi resmi
             </div>
           </div>
         </div>

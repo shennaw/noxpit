@@ -12,6 +12,7 @@ import Marquee from './components/Marquee';
 import Categories from './components/Categories';
 import Products from './components/Products';
 import Brand from './components/Brand';
+import Packaging from './components/Packaging';
 import Testimonials from './components/Testimonials';
 import CTA from './components/CTA';
 import Footer from './components/Footer';
@@ -36,6 +37,7 @@ function Landing() {
       <Categories />
       <Products />
       <Brand />
+      <Packaging />
       <Testimonials />
       <CTA />
       <Footer />

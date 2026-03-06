@@ -8,8 +8,9 @@ export default function CTA() {
         </svg>
       </div>
       <div>
+        <div className="cta-tagline">Not just a part, it's an upgrade experience.</div>
         <h2 className="cta-title">Siap Upgrade<br />Motor Anda?</h2>
-        <p className="cta-sub">Temukan semua kebutuhan suku cadang di satu tempat</p>
+        <p className="cta-sub">Temukan suku cadang berkualitas dengan packaging experience yang khas — hanya di NOXPIT</p>
       </div>
       <a href="#" className="btn-white">Shop Sekarang</a>
     </section>

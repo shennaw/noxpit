@@ -1,3 +1,4 @@
+import { useEffect, useRef, useCallback } from 'react';
 import { useCarousel, ACCENT_COLORS } from '../hooks/useCarousel';
 import { XIcon } from './XIcon';
 
@@ -13,6 +14,7 @@ const slides = [
     stats: [{ num: 'Rp285K', label: 'Harga Terbaik' }, { num: 'OEM', label: 'Certified Quality' }, { num: '1 Yr', label: 'Garansi Resmi' }],
     badges: ['OEM Quality', 'Garansi Resmi', '500+ Variants'],
     visual: <GearSVG color="#0091d0" />,
+    video: '/hero-gear-video.mp4',
   },
   {
     slideClass: 'slide-1',
@@ -116,6 +118,28 @@ function CylinderSVG() {
 
 export default function Hero() {
   const { current, goTo, trackRef, progressRef, SLIDE_COUNT } = useCarousel();
+  const videoRefs = useRef([]);
+
+  const setVideoRef = useCallback((el, i) => {
+    videoRefs.current[i] = el;
+    if (el) {
+      el.muted = true;
+      el.play().catch(() => {});
+    }
+  }, []);
+
+  useEffect(() => {
+    videoRefs.current.forEach((video, i) => {
+      if (!video) return;
+      video.muted = true;
+      if (i === current) {
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+        video.currentTime = 0;
+      }
+    });
+  }, [current]);
 
   return (
     <section className="hero" id="hero-carousel">
@@ -135,6 +159,7 @@ export default function Hero() {
                 <span className="line-2">{slide.titleOutline}</span>
               </h1>
               <p className="hero-desc">{slide.desc}</p>
+              <div className="hero-tagline">Not just a part, it's an upgrade experience.</div>
               <div className="hero-actions">
                 <a href="#products" className="btn-primary">Order Sekarang</a>
                 <a href="#products" className="btn-ghost">{slide.ghostLabel}</a>
@@ -149,15 +174,35 @@ export default function Hero() {
               </div>
             </div>
             <div className="hero-visual">
-              <div className="product-showcase">
-                <div className="glow-ring glow-ring-1" />
-                <div className="glow-ring glow-ring-2" />
-                <div className="glow-ring glow-ring-3" />
-                {slide.visual}
-                <div className="badge badge-1">{slide.badges[0]}</div>
-                <div className="badge badge-2">{slide.badges[1]}</div>
-                <div className="badge badge-3">{slide.badges[2]}</div>
-              </div>
+              {slide.video ? (
+                <div className="product-showcase has-video">
+                  <div className="glow-ring glow-ring-1" />
+                  <div className="glow-ring glow-ring-2" />
+                  <video
+                    className="hero-video"
+                    ref={(el) => setVideoRef(el, i)}
+                    src={slide.video}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    onLoadedData={(e) => { e.target.muted = true; e.target.play().catch(() => {}); }}
+                  />
+                  <div className="badge badge-1">{slide.badges[0]}</div>
+                  <div className="badge badge-2">{slide.badges[1]}</div>
+                  <div className="badge badge-3">{slide.badges[2]}</div>
+                </div>
+              ) : (
+                <div className="product-showcase">
+                  <div className="glow-ring glow-ring-1" />
+                  <div className="glow-ring glow-ring-2" />
+                  <div className="glow-ring glow-ring-3" />
+                  {slide.visual}
+                  <div className="badge badge-1">{slide.badges[0]}</div>
+                  <div className="badge badge-2">{slide.badges[1]}</div>
+                  <div className="badge badge-3">{slide.badges[2]}</div>
+                </div>
+              )}
             </div>
           </div>
         ))}
