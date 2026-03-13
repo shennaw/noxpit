@@ -1,7 +1,7 @@
 import { useState, useRef, useCallback, useEffect } from 'react';
 
 const SLIDE_COUNT = 3;
-const AUTO_INTERVAL = 5000;
+const AUTO_INTERVAL = 8000;
 export const ACCENT_COLORS = ['#0091d0', '#f287b7', '#7869af'];
 
 export function useCarousel() {
